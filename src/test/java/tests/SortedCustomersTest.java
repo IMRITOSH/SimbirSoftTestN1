@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,6 +12,7 @@ import utils.Webdriver;
 
 import java.time.Duration;
 
+@Epic("Sorted customers tests")
 public class SortedCustomersTest {
     static WebDriver driver = Webdriver.getChromeDriver();
     CustomersPage customersPage = new CustomersPage(driver);
@@ -22,6 +25,7 @@ public class SortedCustomersTest {
     }
 
     @Test
+    @Description("Сортировка клиентов по имени")
     public void sortCustomers() {
             customersPage.goToAddCustomerTab();
             Assertions.assertTrue(customersPage.sortCustomersFirstName());

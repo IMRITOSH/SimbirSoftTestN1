@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,10 +30,12 @@ public class CustomersPage {
     @FindBy(xpath = "//td[text()='Imran']")
     private WebElement firstNameSearchCustomer;
 
+    @Step("Открытие вкладки с таблицей клиентов")
     public void goToAddCustomerTab() {
         buttonTabCustomers.click();
     }
 
+    @Step("Отсортирвоать клиентов в алфавитном порядке по имени")
     public boolean sortCustomersFirstName() {
         String[] tableRows = tableCustomers.getText().split("\n");
         Arrays.sort(tableRows, Collections.reverseOrder(String.CASE_INSENSITIVE_ORDER));
@@ -49,6 +52,7 @@ public class CustomersPage {
         return true;
     }
 
+    @Step("Поиск клиента по введенному имени")
     public boolean searchCustomer(String firstName) {
         inputSearchCustomer.sendKeys(firstName);
 

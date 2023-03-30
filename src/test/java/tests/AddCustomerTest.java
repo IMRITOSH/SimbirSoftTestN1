@@ -1,6 +1,7 @@
 package tests;
 
-
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,6 +16,7 @@ import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
 
+@Epic("Add customer tests")
 public class AddCustomerTest {
     static WebDriver driver = Webdriver.getChromeDriver();
     AddCustomerPage addCustomerPage = new AddCustomerPage(driver);
@@ -27,6 +29,7 @@ public class AddCustomerTest {
     }
 
     @Test
+    @Description("Создание клиента")
     public void addCustomer() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
         addCustomerPage.goToAddCustomerTab();

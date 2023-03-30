@@ -1,6 +1,7 @@
 package pages;
 
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,10 +28,12 @@ public class AddCustomerPage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement buttonSubmitAddCustomer;
 
+    @Step("Открытие вкладки создания клиента")
     public void goToAddCustomerTab() {
         buttonTabAddCustomer.click();
     }
 
+    @Step("Ввод данных и добавление клиента")
     public void inputCustomerInformation(String firstName, String lastName, String postCode) {
         inputFirstName.sendKeys(firstName);
         inputLastName.sendKeys(lastName);

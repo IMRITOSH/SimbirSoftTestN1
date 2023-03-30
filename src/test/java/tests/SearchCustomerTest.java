@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +14,7 @@ import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
 
+@Epic("Search customer tests")
 public class SearchCustomerTest {
     static WebDriver driver = Webdriver.getChromeDriver();
     CustomersPage customersPage = new CustomersPage(driver);
@@ -35,6 +38,7 @@ public class SearchCustomerTest {
     }
 
     @Test
+    @Description("Поиск клиента по имени")
     public void searchCustomer() {
             customersPage.goToAddCustomerTab();
             Assertions.assertTrue(customersPage.searchCustomer("Imran"));
