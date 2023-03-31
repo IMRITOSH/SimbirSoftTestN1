@@ -12,6 +12,8 @@ Test add customer:
   stage: tests
   tags:
     -add-customer
+  script:
+    - mvn clean test
   artifacts:
     when: always
     paths:
