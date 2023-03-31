@@ -8,15 +8,6 @@ stages:
   - tests
   - allure
 
-#Tests with allure:
-#  stage: test
-#  script:
-#    - mvn clean test
-#  artifacts:
-#    when: always
-#    paths:
-#      - target\allure-results\*
-
 Test add customer:
   stage: tests
   tags:
@@ -30,6 +21,7 @@ Allure report:
   stage: allure
   script:
     - mvn allure:report
-  when: always
+  artifacts:
+    when: always
     paths:
       - target\allure-results\*
