@@ -9,7 +9,6 @@ import utils.Webdriver;
 
 import java.time.Duration;
 
-@Tag("SortedCustomersTests")
 @Epic("Sorted customers tests")
 public class SortedCustomersTest {
     static WebDriver driver = Webdriver.getChromeDriver();
@@ -25,8 +24,8 @@ public class SortedCustomersTest {
     @Test
     @Description("Сортировка клиентов по имени")
     public void sortCustomers() {
-            customersPage.goToAddCustomerTab();
-            Assertions.assertTrue(customersPage.sortCustomersFirstName());
+        customersPage.goToAddCustomerTab();
+        Assertions.assertTrue(customersPage.sortCustomersFirstName());
 
     }
 

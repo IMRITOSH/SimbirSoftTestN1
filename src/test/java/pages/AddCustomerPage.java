@@ -13,7 +13,7 @@ public class AddCustomerPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//button[@ng-class='btnClass1']")
+    @FindBy(css = "button[ng-click='addCust()']")
     private WebElement buttonTabAddCustomer;
 
     @FindBy(xpath = "//input[@placeholder='First Name']")
@@ -25,7 +25,7 @@ public class AddCustomerPage {
     @FindBy(xpath = "//input[@placeholder='Post Code']")
     private WebElement inputPostCode;
 
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(css = "button.btn.btn-default")
     private WebElement buttonSubmitAddCustomer;
 
     @Step("Открытие вкладки создания клиента")
