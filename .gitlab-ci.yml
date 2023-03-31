@@ -1,4 +1,4 @@
-image: maven:3.8-openjdk-11
+image: maven:3.9.1-openjdk-11
 
 default:
   tags:
@@ -10,8 +10,9 @@ stages:
 Tests with allure:
   stage: test
   script:
-    - C:\Program Files (x86)\maven\apache-maven-3.9.1\bin\mvn clean test
-    - C:\Program Files (x86)\maven\apache-maven-3.9.1\bin\mvn allure:report allure:serve
+    - pwd
+    - mvn clean test
+    - mvn allure:report allure:serve
   artifacts:
     paths:
       - target\allure-results\*
