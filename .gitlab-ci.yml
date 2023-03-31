@@ -11,7 +11,7 @@ Tests with allure:
   stage: test
   script:
     - mvn clean test
-    - mvn allure:report allure:serve
+    - mvn allure:report
   artifacts:
     paths:
       - target\allure-results\*
