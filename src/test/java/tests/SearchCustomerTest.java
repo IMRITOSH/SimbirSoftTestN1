@@ -14,6 +14,7 @@ import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
 
+@Tag("SearchCustomerTests")
 @Epic("Search customer tests")
 public class SearchCustomerTest {
     static WebDriver driver = Webdriver.getChromeDriver();

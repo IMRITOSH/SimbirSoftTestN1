@@ -5,13 +5,31 @@ default:
     - shelllocal
 
 stages:
-  - test
+  - tests
+  - allure
 
-Tests with allure:
-  stage: test
-  script:
-    - mvn clean test
-    - mvn allure:report
+#Tests with allure:
+#  stage: test
+#  script:
+#    - mvn clean test
+#  artifacts:
+#    when: always
+#    paths:
+#      - target\allure-results\*
+
+Test add customer:
+  stage: tests
+  tags:
+    -AddCustomerTests
   artifacts:
+    when: always
+    paths:
+      - target\allure-results\*
+
+Allure report:
+  stage: allure
+  script:
+    - mvn allure:report
+  when: always
     paths:
       - target\allure-results\*

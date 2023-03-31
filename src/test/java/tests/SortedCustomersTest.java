@@ -2,16 +2,14 @@ package tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import pages.CustomersPage;
 import utils.Webdriver;
 
 import java.time.Duration;
 
+@Tag("SortedCustomersTests")
 @Epic("Sorted customers tests")
 public class SortedCustomersTest {
     static WebDriver driver = Webdriver.getChromeDriver();
