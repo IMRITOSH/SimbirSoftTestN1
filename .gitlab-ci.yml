@@ -20,7 +20,7 @@ stages:
 Test add customer:
   stage: tests
   tags:
-    -AddCustomerTests
+    -add-customer
   artifacts:
     when: always
     paths:

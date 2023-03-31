@@ -13,7 +13,7 @@ import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
 
-@Tag("AddCustomerTests")
+@Tag("add-customer")
 @Epic("Add customer tests")
 public class AddCustomerTest {
     static WebDriver driver = Webdriver.getChromeDriver();
