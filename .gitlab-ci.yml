@@ -10,9 +10,8 @@ stages:
 Tests with allure:
   stage: test
   script:
-    - pwd
-    - mvn clean test
-    - mvn allure:report allure:serve
+    - mvn.exe clean test
+    - mvn.exe allure:report allure:serve
   artifacts:
     paths:
       - target\allure-results\*
