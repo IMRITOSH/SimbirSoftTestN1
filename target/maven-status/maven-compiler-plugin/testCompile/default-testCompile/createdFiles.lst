@@ -1,6 +1,7 @@
 tests\AddCustomerTest.class
 tests\SortedCustomersTest.class
 pages\AddCustomerPage.class
+tests\BaseTest.class
 tests\SearchCustomerTest.class
 pages\CustomersPage.class
 utils\Webdriver.class

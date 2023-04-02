@@ -14,17 +14,16 @@ import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Epic("Search customer tests")
-public class SearchCustomerTest {
-    static WebDriver driver = Webdriver.getChromeDriver();
+public class SearchCustomerTest extends BaseTest {
+    WebDriver driver = Webdriver.getChromeDriver();
     CustomersPage customersPage = new CustomersPage(driver);
     AddCustomerPage addCustomerPage = new AddCustomerPage(driver);
 
     @BeforeAll
-    public static void setup() {
-        driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    public void setup() {
+        openSite(driver);
     }
 
     @BeforeEach
@@ -40,12 +39,12 @@ public class SearchCustomerTest {
     @Test
     @Description("Поиск клиента по имени")
     public void searchCustomer() {
-        customersPage.goToAddCustomerTab();
+        customersPage.goToCustomersTab();
         Assertions.assertTrue(customersPage.searchCustomer("Imran"));
     }
 
     @AfterAll
-    public static void tearDown() {
+    public void tearDown() {
         driver.quit();
     }
 }

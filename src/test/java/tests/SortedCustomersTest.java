@@ -7,30 +7,28 @@ import org.openqa.selenium.WebDriver;
 import pages.CustomersPage;
 import utils.Webdriver;
 
-import java.time.Duration;
-
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Epic("Sorted customers tests")
-public class SortedCustomersTest {
-    static WebDriver driver = Webdriver.getChromeDriver();
+public class SortedCustomersTest extends BaseTest {
+    WebDriver driver = Webdriver.getChromeDriver();
     CustomersPage customersPage = new CustomersPage(driver);
 
     @BeforeAll
-    public static void setup() {
-        driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    public void setup() {
+        openSite(driver);
     }
 
     @Test
     @Description("Сортировка клиентов по имени")
     public void sortCustomers() {
-        customersPage.goToAddCustomerTab();
-        Assertions.assertTrue(customersPage.sortCustomersFirstName());
-
+        customersPage.goToCustomersTab();
+        String[][] table = customersPage.fillTwoDimensionalArray(customersPage.tableCustomers.getText());
+        customersPage.clickfieldFirstName();
+        Assertions.assertTrue(customersPage.sortCustomers(table, "First name"));
     }
 
     @AfterAll
-    public static void tearDown() {
+    public void tearDown() {
         driver.quit();
     }
 }

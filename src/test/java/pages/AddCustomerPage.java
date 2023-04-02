@@ -16,13 +16,13 @@ public class AddCustomerPage {
     @FindBy(css = "button[ng-click='addCust()']")
     private WebElement buttonTabAddCustomer;
 
-    @FindBy(xpath = "//input[@placeholder='First Name']")
+    @FindBy(xpath = "//input[@ng-model='fName']")
     private WebElement inputFirstName;
 
-    @FindBy(xpath = "//input[@placeholder='Last Name']")
+    @FindBy(xpath = "//input[@ng-model='lName']")
     private WebElement inputLastName;
 
-    @FindBy(xpath = "//input[@placeholder='Post Code']")
+    @FindBy(xpath = "//input[@ng-model='postCd']")
     private WebElement inputPostCode;
 
     @FindBy(css = "button.btn.btn-default")

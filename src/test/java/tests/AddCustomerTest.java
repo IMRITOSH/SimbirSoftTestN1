@@ -13,16 +13,15 @@ import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Epic("Add customer tests")
-public class AddCustomerTest {
-    static WebDriver driver = Webdriver.getChromeDriver();
+public class AddCustomerTest extends BaseTest {
+    WebDriver driver = Webdriver.getChromeDriver();
     AddCustomerPage addCustomerPage = new AddCustomerPage(driver);
 
     @BeforeAll
-    public static void setup() {
-        driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    public void setup() {
+        openSite(driver);
     }
 
     @Test
@@ -32,14 +31,14 @@ public class AddCustomerTest {
         addCustomerPage.goToAddCustomerTab();
         addCustomerPage.inputCustomerInformation("test", "test", "test");
         Alert alert = wait.until(alertIsPresent());
-        String alertMessage = alert.getText().substring(0, alert.getText().length() - 1);
+        String alertMessage = alert.getText();
 
-        Assertions.assertEquals(alertMessage, "Customer added successfully with customer id :");
+        Assertions.assertTrue(alertMessage.contains("Customer added successfully with customer id :"));
 
     }
 
     @AfterAll
-    public static void tearDown() {
+    public void tearDown() {
         driver.quit();
     }
 }
